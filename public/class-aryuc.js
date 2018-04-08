@@ -1,10 +1,12 @@
-class Gishatich {
-    constructor(x, y) {
-        this.x = x;
+class Aryuc extends livingCreatures {
+    constructor() {
+        super(x, y);
+        /*this.x = x;
         this.y = y;
-        this.energy = 15;
-        this.directions = [];
-        this.index = 3;
+        this.directions = [];*/
+        this.energy = 30;
+        
+
     }
 
     stanalNorKordinatner() {
@@ -20,7 +22,7 @@ class Gishatich {
         ];
     }
     yntrelVandak(ch) {
-        this.stanalNorKordinatner()
+
         var found = [];
         for (var i in this.directions) {
             var x = this.directions[i][0];
@@ -39,7 +41,7 @@ class Gishatich {
         var norvandak = random(datarkvandakner);
         if (norvandak) {
             matrix[this.y][this.x] = 0;
-            matrix[norvandak[1]][norvandak[0]] = 3;
+            matrix[norvandak[1]][norvandak[0]] = 4;
             this.x = norvandak[0];
             this.y = norvandak[1];
             this.energy--;
@@ -47,18 +49,19 @@ class Gishatich {
     }
     eat() {
         this.stanalNorKordinatner();
-        var datarkvandakner = this.yntrelVandak(2);
+        var datarkvandakner = this.yntrelVandak(3);
         var norvandak = random(datarkvandakner);
+
         if (norvandak) {
+
             matrix[this.y][this.x] = 0;
-            matrix[norvandak[1]][norvandak[0]] = 3;
+            matrix[norvandak[1]][norvandak[0]] = 4;
             this.x = norvandak[0];
             this.y = norvandak[1];
             this.energy++;
-            for (var c in xotakerner) {
-
-                if (xotakerner[c].x == this.x && xotakerner[c].y == this.y) {
-                    xotakerner.splice(c, 1);
+            for (var c in gishatichner) {
+                if (gishatichner[c].x == this.x && gishatichner[c].y == this.y) {
+                    gishatichner.splice(c, 1);
                     break;
                 }
             }
@@ -69,18 +72,17 @@ class Gishatich {
     }
 
     bazmanal() {
-        this.energy = 10;
+        this.energy = 6;
         var norVandak = random(this.yntrelVandak(0));
         if (norVandak) {
-            var gishatich = new Gishatich(norVandak[0], norVandak[1]);
-            gishatichner.push(gishatich);
-            matrix[norVandak[1]][norVandak[0]] = 3;
+            var norXotaker = new Aryuc(norVandak[0], norVandak[1]);
+            aryucner.push(norXotaker);
+            matrix[norVandak[1]][norVandak[0]] = 2;
         }
     }
     mahanal(i) {
         matrix[this.y][this.x] = 0;
-        gishatichner.splice(i, 1);
-
+        aryucner.splice(i, 1);
+        console.log(aryucner.length)
     }
-
 }

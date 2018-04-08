@@ -1,10 +1,12 @@
-class Pat {
-    constructor(x, y) {
-        this.x = x;
+class Pat extends livingCreatures {
+    constructor() {
+                super(x, y);
+        /*this.x = x;
         this.y = y;
+        this.directions = [];*/
         this.energy = 5;
-        this.directions = [];
-        this.index = 5;
+        
+
 
     }
 
@@ -61,7 +63,7 @@ class Pat {
                 for (var i in aryucner) {
                     if (norvandak[1] == aryucner[i].y && norvandak[0] == aryucner[i].x) {
                         aryucner.splice(i, 1);
-                        matrix[norvandak[1]][norvandak[0]] = 0
+                        matrix[norvandak[1]][norvandak[0]] = 0;
                         break;
                     }
                 }

@@ -139,13 +139,9 @@ function draw() {
     // for(var i in xotakerner){
     //   xotakerner[i].sharjvel();
     // }
-    for (var i in gishatichner) {
-        gishatichner[i].eat();
-    }
+
     for (var i in aryucner) {
         aryucner[i].eat();
-    }
-    for (var i in aryucner) {
         if (aryucner[i].energy >= 15) {
             aryucner[i].bazmanal();
         }
@@ -154,6 +150,7 @@ function draw() {
         }
     }
     for (var i in gishatichner) {
+        gishatichner[i].eat();
         if (gishatichner[i].energy >= 20) {
             gishatichner[i].bazmanal();
         }
@@ -163,9 +160,6 @@ function draw() {
     }
     for (var i in xotakerner) {
         xotakerner[i].eat();
-
-    }
-    for (var i in xotakerner) {
         if (xotakerner[i].energy >= 10) {
             xotakerner[i].bazmanal();
         }
@@ -175,7 +169,7 @@ function draw() {
         }
     }
 
-    for(var i in pater){
+    for (var i in pater) {
         pater[i].kill();
     }
 }
